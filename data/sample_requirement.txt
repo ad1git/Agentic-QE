@@ -1,0 +1,10 @@
+The customer should be able to reset their password.
+
+The user enters their registered email address and requests a password reset.
+The system sends a password reset link to the registered email address.
+The link should expire after 30 minutes.
+The user can use the link to create a new password.
+The new password must contain at least 8 characters, one uppercase letter,
+one lowercase letter, one number, and one special character.
+After successful password reset, the user should be able to log in using
+the new password.
