@@ -1,4 +1,4 @@
-from analyzer import RequirementAnalyzer
+from analyzer import RequirementAnalysisAgent
 
 def main():
     print("=" * 70)
@@ -9,7 +9,7 @@ def main():
     if not file_name:
         file_name = "requirement.txt"
 
-    analyzer = RequirementAnalyzer()
+    analyzer = RequirementAnalysisAgent()
 
     try:
         result = analyzer.analyze_file(file_name)

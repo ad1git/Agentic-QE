@@ -1,4 +1,4 @@
-from analyzer import RequirementAnalyzer
+from analyzer import RequirementAnalysisAgent
 
 
 def main():
@@ -12,7 +12,7 @@ def main():
     print(f"\nRequirement: {requirement_file}")
     print("Analyzing requirement with local AI...\n")
 
-    analyzer = RequirementAnalyzer()
+    analyzer = RequirementAnalysisAgent()
 
     result = analyzer.analyze_file(requirement_file)
 

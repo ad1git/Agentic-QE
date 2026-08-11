@@ -24,22 +24,43 @@ The project uses Python, Ollama, and Qwen2.5-Coder 7B to demonstrate how AI agen
 
 ## Architecture
 
-The current agent follows a requirement-to-QE-analysis flow:
-
-```text
-Requirement
-     ↓
-Requirement Analysis Agent
-     ↓
-Prompt Engineering
-     ↓
-Ollama + Qwen2.5-Coder 7B
-     ↓
-Structured JSON Response
-     ↓
-Output Validation
-     ↓
-QE Analysis
+                         Agentic-QE
+                             │
+                             ▼
+                    Requirement Input
+                             │
+                             ▼
+                ┌────────────────────────┐
+                │ RequirementAnalysisAgent     │
+                │        Agent            │
+                └───────────┬────────────┘
+                            │
+                            ▼
+                    Prompt Engineering
+                            │
+                            ▼
+                ┌────────────────────────┐
+                │ Ollama                  │
+                │ Qwen2.5-Coder 7B       │
+                │ Local LLM               │
+                └───────────┬────────────┘
+                            │
+                            ▼
+                    Structured JSON
+                            │
+                            ▼
+                AI Output Validation
+                            │
+                            ▼
+                     QE Analysis
+                            │
+          ┌─────────────────┼─────────────────┐
+          ▼                 ▼                 ▼
+      Testability          Risk          Ambiguities
+          │                 │                 │
+          └─────────────────┼─────────────────┘
+                            ▼
+                    QE Recommendation
 
 ## Technology Stack
 

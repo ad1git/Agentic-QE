@@ -1,8 +1,8 @@
-from analyzer import RequirementAnalyzer
+from analyzer import RequirementAnalysisAgent
 
 
 def test_read_requirement():
-    analyzer = RequirementAnalyzer()
+    analyzer = RequirementAnalysisAgent()
 
     requirement = analyzer.read_requirement(
         "data/sample_requirement.txt"
@@ -13,7 +13,7 @@ def test_read_requirement():
 
 
 def test_read_requirement_file_not_found():
-    analyzer = RequirementAnalyzer()
+    analyzer = RequirementAnalysisAgent()
 
     try:
         analyzer.read_requirement("data/does_not_exist.txt")
@@ -23,7 +23,7 @@ def test_read_requirement_file_not_found():
 
 
 def test_read_requirement_empty_file():
-    analyzer = RequirementAnalyzer()
+    analyzer = RequirementAnalysisAgent()
 
     try:
         analyzer.read_requirement("data/empty_requirement.txt")
@@ -32,7 +32,7 @@ def test_read_requirement_empty_file():
         pass
 
 def test_validate_analysis_result():
-    analyzer = RequirementAnalyzer()
+    analyzer = RequirementAnalysisAgent()
 
     result = {
         "requirement_summary": "Customer can reset their password.",

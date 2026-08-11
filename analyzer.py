@@ -3,7 +3,7 @@ from pathlib import Path
 from ollama import chat
 
 
-class RequirementAnalyzer:
+class RequirementAnalysisAgent:
     def __init__(self, model="qwen2.5-coder:7b"):
         self.model = model
 
