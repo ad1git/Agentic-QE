@@ -117,3 +117,9 @@ QE Recommendation
 ## Purpose
 
 This project is being developed to demonstrate practical experience in applying Generative AI and agent-based approaches to Quality Engineering.
+
+---
+
+### Author
+
+Developed by **ad1git** — AI-QE project for intelligent Quality Engineering. ( Amardeep Sangwan)
