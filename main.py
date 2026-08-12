@@ -1,35 +1,48 @@
 from analyzer import RequirementAnalysisAgent
-
+from test_design_agent import TCGenerationAgent
 
 def main():
-    print("\n" + "=" * 70)
-    print("AI QE REQUIREMENT ANALYZER")
+    print("=" * 70)
+    print("AI QE - Requirement Analyzer Agent")
     print("=" * 70)
 
-    requirement_file = "data/sample_requirement.txt"
-    output_file = "output/requirement_analysis.json"
+    file_name = input(
+        "Enter requirement file name [requirement.txt]: "
+    ).strip()
 
-    print(f"\nRequirement: {requirement_file}")
-    print("Analyzing requirement with local AI...\n")
+    if not file_name:
+        file_name = "requirement.txt"
 
     analyzer = RequirementAnalysisAgent()
 
-    result = analyzer.analyze_file(requirement_file)
+    try:
+        # Agent 1
+        result = analyzer.analyze_file(file_name)
 
-    if analyzer.validate_analysis_result(result):
-        print("AI output validation: PASSED")
-    else:
-        print("AI output validation: FAILED")
-        return
+        analyzer.save_result(
+            result,
+            "output/requirement_analysis.json"
+        )
 
-    analyzer.print_report(result)
+        analyzer.print_report(result)
 
-    analyzer.save_result(result, output_file)
+        # Agent 2
+        tc_agent = TCGenerationAgent()
 
-    print(f"\nAnalysis saved to: {output_file}")
-    print("\nAnalysis completed successfully.")
-    print("=" * 70)
+        test_cases = tc_agent.generate_test_cases(result)
 
+        print("\n" + "=" * 70)
+        print("Generated Test Cases")
+        print("=" * 70)
+
+        print(test_cases)
+
+    except FileNotFoundError:
+        print(f"\nERROR: Could not find '{file_name}'.")
+        print("Place the requirement file in the project folder and try again.")
+
+    except Exception as exc:
+        print(f"\nERROR: {exc}")
 
 if __name__ == "__main__":
     main()
