@@ -122,4 +122,4 @@ This project is being developed to demonstrate practical experience in applying 
 
 ### Author
 
-Developed by **ad1git** — AI-QE project for intelligent Quality Engineering. (Amardeep Sangwan)
+Developed by **Amardeep Sangwan** — AI-QE project for intelligent Quality Engineering.
