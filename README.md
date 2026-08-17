@@ -108,6 +108,7 @@ Agentic-QE/
     └── .gitkeep
 
 ## Purpose
+```text
 
 This project demonstrates how Generative AI, structured output validation, and decision-driven agent execution can be applied to practical Quality Engineering workflows.
 
