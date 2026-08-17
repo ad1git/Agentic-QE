@@ -83,6 +83,7 @@ pathlib	            File handling and path management
 VS Code	            Development environment
 
 ## Project Structure
+
 ```text
 Agentic-QE/
 │
@@ -103,10 +104,8 @@ Agentic-QE/
 ├── tests/
 │   └── test_analyzer.py
 │
-├── output/
-│   └── .gitkeep
-│
-└── docs/
+└── output/
+    └── .gitkeep
 
 ## Purpose
 
