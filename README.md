@@ -106,16 +106,15 @@ Agentic-QE/
 │   └── test_analyzer.py
 │
 └── output/
-```text
     └── .gitkeep
+```text
 
 ## Purpose
-```text
 
 This project demonstrates how Generative AI, structured output validation, and decision-driven agent execution can be applied to practical Quality Engineering workflows.
 
 A hands-on project demonstrating Agentic AI and Quality Engineering capabilities.
 
 ## Author
-```text
+
 Developed by Amardeep Sangwan — AI-QE project for intelligent Quality Engineering.
