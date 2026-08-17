@@ -75,7 +75,7 @@ The project uses Python, Ollama, and Qwen2.5-Coder 7B to demonstrate how AI agen
 | VS Code          | Development environment                 |
 
 ## Project Structure
-
+```text
 Agentic-QE/
 │
 ├── analyzer.py
