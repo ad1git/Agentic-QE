@@ -72,15 +72,16 @@ Agentic AI-based Quality Engineering solution that analyzes software requirement
            Risk Analysis
 
 ## Technology Stack
-```text
-Technology	        Purpose
-Python 3.14	        Application development
-Ollama	            Local LLM runtime
-Qwen2.5-Coder 7B	Local LLM used for requirement analysis
-pytest	            Automated testing
-JSON	            Structured AI output
-pathlib	            File handling and path management
-VS Code	            Development environment
+
+| Technology | Purpose |
+|---|---|
+| Python 3.14 | Application development |
+| Ollama | Local LLM runtime |
+| Qwen2.5-Coder 7B | Local LLM used for requirement analysis |
+| pytest | Automated testing |
+| JSON | Structured AI output |
+| pathlib | File handling and path management |
+| VS Code | Development environment |
 
 ## Project Structure
 
