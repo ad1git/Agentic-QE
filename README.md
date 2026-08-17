@@ -83,6 +83,7 @@ pathlib	            File handling and path management
 VS Code	            Development environment
 
 ## Project Structure
+```text
 Agentic-QE/
 │
 ├── agent.py
