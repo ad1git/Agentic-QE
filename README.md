@@ -1,87 +1,167 @@
 # Agentic-QE
 
-AI-driven Quality Engineering agent that analyzes software requirements using a local LLM and produces structured QE insights.
+Agentic AI-based Quality Engineering solution that analyzes software requirements, makes QE decisions based on the analysis, and invokes a specialized QE Risk Agent when required.
 
-The agent analyzes requirements for functional expectations, actors, business rules, acceptance criteria, ambiguities, missing information, negative scenarios, boundary conditions, testability, risk, and QE recommendations.
-
-The project uses Python, Ollama, and Qwen2.5-Coder 7B to demonstrate how AI agents can support Quality Engineering activities.
-
-> This is a hands-on project to demonstrate AI + QE engineering capabilities.
+> This is a hands-on project demonstrating Agentic AI and Quality Engineering capabilities.
 
 ## Key Capabilities
 
 - Read software requirements from text files
 - Analyze requirements using a local LLM
-- Identify ambiguities and missing information
-- Identify negative scenarios and boundary conditions
+- Identify functional requirements, actors, and business rules
+- Identify acceptance criteria, negative scenarios, and boundary conditions
 - Assess requirement testability
 - Assess requirement risk
 - Generate QE recommendations
-- Produce structured JSON output
 - Validate the AI response structure
+- Use a QE Planner for decision-making
+- Invoke a specialized QE Risk Agent when required
+- Produce structured JSON output
 - Save analysis results
 - Automated testing using pytest
 
-## Architecture
+## Agentic Behavior
 
-                         Agentic-QE
-                             │
-                             ▼
-                    Requirement Input
-                             │
-                             ▼
-                ┌────────────────────────┐
-                │ RequirementAnalysisAgent     │
-                │        Agent            │
-                └───────────┬────────────┘
+The system follows a decision-driven Agentic QE workflow.
+
+```text
+Requirement
+     │
+     ▼
+Requirement Analysis Agent
+     │
+     ▼
+Structured QE Analysis
+     │
+     ▼
+QE Planner
+     │
+     ▼
+Decision
+     │
+     ├────────────── High Risk ──────────────► QE Risk Agent
+     │                                           │
+     │                                           ▼
+     │                                      Risk Analysis
+     │
+     └──────────── Low / Medium Risk ──────► No Specialist Action
+
+                              Agentic-QE
+                              │
+                              ▼
+                     Requirement Input
+                              │
+                              ▼
+               ┌──────────────────────────┐
+               │ Requirement Analysis     │
+               │ Agent                    │
+               └────────────┬─────────────┘
                             │
                             ▼
                     Prompt Engineering
                             │
                             ▼
-                ┌────────────────────────┐
-                │ Ollama                  │
-                │ Qwen2.5-Coder 7B       │
-                │ Local LLM               │
-                └───────────┬────────────┘
+               ┌──────────────────────────┐
+               │ Ollama                   │
+               │ Qwen2.5-Coder 7B        │
+               │ Local LLM                │
+               └────────────┬─────────────┘
                             │
                             ▼
                     Structured JSON
                             │
                             ▼
-                AI Output Validation
+                 AI Output Validation
                             │
                             ▼
-                     QE Analysis
+                      QE Analysis
                             │
-          ┌─────────────────┼─────────────────┐
-          ▼                 ▼                 ▼
-      Testability          Risk          Ambiguities
-          │                 │                 │
-          └─────────────────┼─────────────────┘
                             ▼
-                    QE Recommendation
+                      QE Planner
+                            │
+                            ▼
+                       Decision
+                            │
+                 ┌──────────┴──────────┐
+                 ▼                     ▼
+             High Risk           Low / Medium
+                 │                     │
+                 ▼                     ▼
+           QE Risk Agent        No Specialist
+                 │                  Action
+                 ▼
+           Risk Analysis
+
+## Architecture
+
+                         Agentic-QE
+                              │
+                              ▼
+                     Requirement Input
+                              │
+                              ▼
+               ┌──────────────────────────┐
+               │ Requirement Analysis     │
+               │ Agent                    │
+               └────────────┬─────────────┘
+                            │
+                            ▼
+                    Prompt Engineering
+                            │
+                            ▼
+               ┌──────────────────────────┐
+               │ Ollama                   │
+               │ Qwen2.5-Coder 7B        │
+               │ Local LLM                │
+               └────────────┬─────────────┘
+                            │
+                            ▼
+                    Structured JSON
+                            │
+                            ▼
+                 AI Output Validation
+                            │
+                            ▼
+                      QE Analysis
+                            │
+                            ▼
+                      QE Planner
+                            │
+                            ▼
+                       Decision
+                            │
+                 ┌──────────┴──────────┐
+                 ▼                     ▼
+             High Risk           Low / Medium
+                 │                     │
+                 ▼                     ▼
+           QE Risk Agent        No Specialist
+                 │                  Action
+                 ▼
+           Risk Analysis
 
 ## Technology Stack
 
-| Technology       | Purpose                                 |
-| ---------------- | --------------------------------------- |
-| Python 3.14      | Application development                 |
-| Ollama           | Local LLM runtime                       |
-| Qwen2.5-Coder 7B | Local LLM used for requirement analysis |
-| pytest           | Automated testing                       |
-| JSON             | Structured AI output                    |
-| pathlib          | File handling and path management       |
-| VS Code          | Development environment                 |
+Technology	        Purpose
+Python 3.14	        Application development
+Ollama	            Local LLM runtime
+Qwen2.5-Coder 7B	Local LLM used for requirement analysis
+pytest	            Automated testing
+JSON	            Structured AI output
+pathlib	            File handling and path management
+VS Code	            Development environment
 
 ## Project Structure
-```text
 Agentic-QE/
 │
+├── agent.py
 ├── analyzer.py
+├── planner.py
+├── risk_agent.py
 ├── main.py
 ├── app.py
 ├── README.md
+├── LICENSE
 ├── requirements.txt
 │
 ├── data/
@@ -91,35 +171,17 @@ Agentic-QE/
 ├── tests/
 │   └── test_analyzer.py
 │
-└── output/
-    └── .gitkeep
-
-## QE Analysis Demonstration
-
-Requirement
-
-"The customer should be able to reset their password."
-
-The agent analyzes the requirement from a QE perspective and produces structured insights covering:
-
-Functional Requirements
-Actors
-Business Rules
-Acceptance Criteria
-Ambiguities
-Missing Information
-Negative Scenarios
-Boundary Conditions
-Testability
-Risk
-QE Recommendation
+├── output/
+│   └── .gitkeep
+│
+└── docs/
 
 ## Purpose
 
-This project is being developed to demonstrate practical experience in applying Generative AI and agent-based approaches to Quality Engineering.
+This project demonstrates how Generative AI, structured output validation, and decision-driven agent execution can be applied to practical Quality Engineering workflows.
 
----
+A hands-on project demonstrating Agentic AI and Quality Engineering capabilities.
 
-### Author
+## Author
 
-Developed by **Amardeep Sangwan** — AI-QE project for intelligent Quality Engineering.
+Developed by Amardeep Sangwan — AI-QE project for intelligent Quality Engineering.
