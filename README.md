@@ -72,7 +72,7 @@ Agentic AI-based Quality Engineering solution that analyzes software requirement
            Risk Analysis
 
 ## Technology Stack
-
+```text
 Technology	        Purpose
 Python 3.14	        Application development
 Ollama	            Local LLM runtime
@@ -115,5 +115,5 @@ This project demonstrates how Generative AI, structured output validation, and d
 A hands-on project demonstrating Agentic AI and Quality Engineering capabilities.
 
 ## Author
-
+```text
 Developed by Amardeep Sangwan — AI-QE project for intelligent Quality Engineering.
