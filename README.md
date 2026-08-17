@@ -106,6 +106,7 @@ Agentic-QE/
 │   └── test_analyzer.py
 │
 └── output/
+```text
     └── .gitkeep
 
 ## Purpose
