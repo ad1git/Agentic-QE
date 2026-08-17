@@ -92,7 +92,9 @@ Decision
                  ▼
            Risk Analysis
 
+
 ## Architecture
+
 
                          Agentic-QE
                               │
